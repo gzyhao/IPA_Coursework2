@@ -8,10 +8,11 @@ endfunction
 function y = SARandomWalkHelper(M, N, X, L, S)
 % input: the number of rows M, the number of columns N, the map matrix X, the current location L and the number of steps used S
 % output: none
-X(L(1), L(2)) = S
+X(L(1), L(2)) = S;
 if (isAvailable(M, N, X, L))
 	y = SARandomWalkHelper(M, N, X, nextMoveWMat(M, N, X, L), S + 1);
 else
+	X
 	printf('The walk stopped at position (%d, %d), after %d steps\n', L(1), L(2), S - 1);
 	y = S - 1;
 endif
